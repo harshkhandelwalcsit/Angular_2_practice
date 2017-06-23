@@ -4,14 +4,17 @@ import { Observable } from "rxjs/Observable";
 
 
 
+
 @Component({
   selector: 'my-form',
   templateUrl: `app/myform.component.html`,
-providers: [HTTPTestService]
+  inputs:[`TableData`],
+providers: [HTTPTestService],
+
 })
 export class FromComponent {
   public data=[];
-
+public TableData:string;
 onSubmit(value:any )
   {
 

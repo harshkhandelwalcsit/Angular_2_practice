@@ -18,16 +18,31 @@ var HTTPTestComponent = (function () {
         this.info = [];
         this._httpService.getCurrentTime()
             .subscribe(function (data) {
-            _this.getData = JSON.stringify(data),
+            _this.getData = (data),
                 _this.info.push(data);
         }, function (error) { return alert(error); }, function () { return console.log("Finished"); });
     }
+    HTTPTestComponent.prototype.onEdit1 = function () {
+        console.log(this.getData[0]);
+    };
+    HTTPTestComponent.prototype.onEdit2 = function () {
+        console.log(this.getData[1]);
+    };
+    HTTPTestComponent.prototype.onEdit3 = function () {
+        console.log(this.getData[2]);
+    };
+    HTTPTestComponent.prototype.onEdit4 = function () {
+        console.log(this.getData[3]);
+    };
+    HTTPTestComponent.prototype.onEdit5 = function () {
+        console.log(this.getData[4]);
+    };
     return HTTPTestComponent;
 }());
 HTTPTestComponent = __decorate([
     core_1.Component({
         selector: 'http-test',
-        template: "\n <p>output:{{postData}}</p>\n<my-form></my-form>\n \n\n  <table class=\"table table-inverse\">\n  <thead>\n    <tr>\n      <th>#</th>\n      <th>ID</th>\n      <th>NAME</th>\n      <th>DESCRIPTION</th>\n        <th>PRICE</th>\n          <th>CREATED_DATE</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th scope=\"row\">1</th>\n      <td *ngFor=\"let a of info\">{{a[0]._id}}</td>\n      <td *ngFor=\"let a of info\">{{a[0].name}}</td>\n      <td *ngFor=\"let a of info\">{{a[0].desc}}</td>\n      <td *ngFor=\"let a of info\">{{a[0].price}}</td>\n      <td *ngFor=\"let a of info\">{{a[0].created_date}}</td>\n    </tr>\n    <tr>\n      <th scope=\"row\">2</th>\n      <td *ngFor=\"let a of info\">{{a[1]._id}}</td>\n      <td *ngFor=\"let a of info\">{{a[1].name}}</td>\n      <td *ngFor=\"let a of info\">{{a[1].desc}}</td>\n      <td *ngFor=\"let a of info\">{{a[1].price}}</td>\n      <td *ngFor=\"let a of info\">{{a[1].created_date}}</td>\n    </tr>\n    <tr>\n      <th scope=\"row\">3</th>\n     <td *ngFor=\"let a of info\">{{a[2]._id}}</td>\n      <td *ngFor=\"let a of info\">{{a[2].name}}</td>\n      <td *ngFor=\"let a of info\">{{a[2].desc}}</td>\n      <td *ngFor=\"let a of info\">{{a[2].price}}</td>\n      <td *ngFor=\"let a of info\">{{a[2].created_date}}</td>\n    </tr>\n    <tr>\n      <th scope=\"row\">4</th>\n     <td *ngFor=\"let a of info\">{{a[3]._id}}</td>\n      <td *ngFor=\"let a of info\">{{a[3].name}}</td>\n      <td *ngFor=\"let a of info\">{{a[3].desc}}</td>\n      <td *ngFor=\"let a of info\">{{a[3].price}}</td>\n      <td *ngFor=\"let a of info\">{{a[3].created_date}}</td>\n    </tr>\n    <tr>\n      <th scope=\"row\">5</th>\n     <td *ngFor=\"let a of info\">{{a[4]._id}}</td>\n      <td *ngFor=\"let a of info\">{{a[4].name}}</td>\n      <td *ngFor=\"let a of info\">{{a[4].desc}}</td>\n      <td *ngFor=\"let a of info\">{{a[4].price}}</td>\n      <td *ngFor=\"let a of info\">{{a[4].created_date}}</td>\n    </tr>\n  </tbody>\n</table>",
+        template: "\n  \n <p>output:{{postData}}</p>\n\n<my-form></my-form>\n \n\n  <table class=\"table table-inverse\">\n  <thead>\n    <tr>\n      <th>#</th>\n      <th>ID</th>\n      <th>NAME</th>\n      <th>DESCRIPTION</th>\n        <th>PRICE</th>\n          <th>CREATED_DATE</th>\n          <th>EDIT</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr >\n      <th scope=\"row\">1</th>\n      <td *ngFor=\"let a of info\">{{a[0]._id}}</td>\n      <td *ngFor=\"let a of info\">{{a[0].name}}</td>\n      <td *ngFor=\"let a of info\">{{a[0].desc}}</td>\n      <td *ngFor=\"let a of info\">{{a[0].price}}</td>\n      <td *ngFor=\"let a of info\">{{a[0].created_date}}</td>\n    \n      <span (click)=\"onEdit1()\"  style=\" padding:20px\" class=\"glyphicon glyphicon-pencil\"></span>\n    </tr>\n    <tr >\n      <th scope=\"row\">2</th>\n      <td *ngFor=\"let a of info\">{{a[1]._id}}</td>\n      <td *ngFor=\"let a of info\">{{a[1].name}}</td>\n      <td *ngFor=\"let a of info\">{{a[1].desc}}</td>\n      <td *ngFor=\"let a of info\">{{a[1].price}}</td>\n      <td *ngFor=\"let a of info\">{{a[1].created_date}}</td>\n           <span (click)=\"onEdit2()\" style=\" padding:20px\" class=\"glyphicon glyphicon-pencil\"></span>\n    </tr>\n    <tr>\n      <th scope=\"row\">3</th>\n     <td *ngFor=\"let a of info\">{{a[2]._id}}</td>\n      <td *ngFor=\"let a of info\">{{a[2].name}}</td>\n      <td *ngFor=\"let a of info\">{{a[2].desc}}</td>\n      <td *ngFor=\"let a of info\">{{a[2].price}}</td>\n      <td *ngFor=\"let a of info\">{{a[2].created_date}}</td>\n     <span (click)=\"onEdit3()\" style=\" padding:20px\" class=\"glyphicon glyphicon-pencil\"></span>\n    </tr>\n    <tr>\n      <th scope=\"row\">4</th>\n     <td *ngFor=\"let a of info\">{{a[3]._id}}</td>\n      <td *ngFor=\"let a of info\">{{a[3].name}}</td>\n      <td *ngFor=\"let a of info\">{{a[3].desc}}</td>\n      <td *ngFor=\"let a of info\">{{a[3].price}}</td>\n      <td *ngFor=\"let a of info\">{{a[3].created_date}}</td>\n       <span (click)=\"onEdit4()\" style=\" padding:20px\" class=\"glyphicon glyphicon-pencil\"></span>\n    </tr>\n    <tr >\n      <th scope=\"row\">5</th>\n     <td *ngFor=\"let a of info\">{{a[4]._id}}</td>\n      <td *ngFor=\"let a of info\">{{a[4].name}}</td>\n      <td *ngFor=\"let a of info\">{{a[4].desc}}</td>\n      <td *ngFor=\"let a of info\">{{a[4].price}}</td>\n      <td *ngFor=\"let a of info\">{{a[4].created_date}}</td>\n       <span (click)=\"onEdit5()\" style=\" padding:20px\" class=\"glyphicon glyphicon-pencil\"></span>\n    </tr>\n  </tbody>\n</table>",
         providers: [http_test_service_1.HTTPTestService],
     }),
     __metadata("design:paramtypes", [http_test_service_1.HTTPTestService])

@@ -34,6 +34,11 @@ export class HTTPTestService {
 
 
     }
+
+    updateData()
+    {
+        console.log("Data Updated Successfully");
+    }
     
 }
 

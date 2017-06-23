@@ -29,6 +29,9 @@ var HTTPTestService = (function () {
         return this._http.post('https://accedo-video-app-api.herokuapp.com/addProduct', json)
             .map(function (res) { return res.json(); });
     };
+    HTTPTestService.prototype.updateData = function () {
+        console.log("Data Updated Successfully");
+    };
     return HTTPTestService;
 }());
 HTTPTestService = __decorate([

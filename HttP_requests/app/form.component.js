@@ -31,7 +31,8 @@ FromComponent = __decorate([
     core_1.Component({
         selector: 'my-form',
         templateUrl: "app/myform.component.html",
-        providers: [http_test_service_1.HTTPTestService]
+        inputs: ["TableData"],
+        providers: [http_test_service_1.HTTPTestService],
     }),
     __metadata("design:paramtypes", [http_test_service_1.HTTPTestService])
 ], FromComponent);
