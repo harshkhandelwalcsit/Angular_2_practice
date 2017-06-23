@@ -1,0 +1,88 @@
+<div style="width:50%" class="container">
+    <h2>Application Form</h2>
+    <hr>
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" #nameRef="ngModel" placeholder="Enter your Name" minlength="5" required maxlength="20" class="form-control"
+                name="name" ngModel>
+            <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)">
+                <div [hidden]="!nameRef.errors.required" class="alert alert-danger">
+                    Please enter a Name
+                </div>
+                <div [hidden]="!nameRef.errors.minlength" class="alert alert-danger">
+                    Please enter atleast five characters
+                </div>
+                <div [hidden]="!nameRef.errors.maxlength" class="alert alert-danger">
+                    Please enter maximum ten characters
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>E-mail</label>
+            <input type="text" #emailRef="ngModel" class="form-control" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                placeholder="Enter your Email" required name="email" ngModel>
+            <div *ngIf="emailRef.errors && (emailRef.dirty || emailRef.touched)">
+                <div [hidden]="!emailRef.errors.required" class="alert alert-danger">
+                    Enter email id
+                </div>
+                <div [hidden]="!emailRef.errors.pattern" class="alert alert-danger">
+                    Please enter a valid email id
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label>Mobile no.</label>
+            <input type="text" class="form-control" #mobileRef="ngModel" placeholder="Enter your mobileno." minlength="10" required name="mobileno"
+                ngModel>
+            <div *ngIf="mobileRef.errors && (mobileRef.dirty || mobileRef.touched)">
+                <div [hidden]="!mobileRef.errors.required" class="alert alert-danger">
+                    Please enter mobile number
+                </div>
+                <div [hidden]="!mobileRef.errors.minlength" class="alert alert-danger">
+                    Please enter valid mobile number
+                </div>
+            </div>
+        </div>
+
+
+        <div ngModelGroup="address">
+
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" class="form-control" placeholder="Enter your City" required name="city" ngModel>
+
+            </div>
+            <div class="form-group">
+                <label>State</label>
+                <input type="text" class="form-control" placeholder="Enter your State" required name="state" ngModel>
+            </div>
+            <div class="form-group">
+                <label>PostalCode</label>
+                <input type="text" #postalcode="ngModel" placeholder="Enter your Postal Code" pattern="^[1-9][0-9]{5}$" required class="form-control"
+                    name="postalcode" ngModel>
+                <div *ngIf="postalcode.errors && (postalcode.dirty || postalcode.touched)">
+                    <div [hidden]="!postalcode.errors.pattern" class="alert alert-danger">
+                        please enter a six digit no..
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Gender:</label>
+            <label class="radio-inline"><input type="radio"  required name='gender' value='Male' [(ngModel)]='gender'  >Male</label>
+            <label class="radio-inline"><input type="radio" required name='gender' value='Female' [(ngModel)]='gender' >Female</label>
+
+        </div>
+        <div class="form-group">
+            <label>Choose Technology:</label>
+            <label class="checkbox-inline"><input type="checkbox"  name='technology[]' value="Java" ngModel>JAVA</label>
+            <label class="checkbox-inline"><input type="checkbox" name='Technology[]' value='AngularJs' >AngularJS</label>
+            <label class="checkbox-inline"><input type="checkbox" name='Technology[]' value='PHP' >PHP</label>
+        </div>
+        <hr>
+        <button [disabled]="!userForm.form.valid" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
