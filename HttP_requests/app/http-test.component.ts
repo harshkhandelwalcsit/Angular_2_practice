@@ -1,7 +1,7 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output ,EventEmitter } from '@angular/core';
 import { HTTPTestService } from './http-test.service';
 import { Observable } from "rxjs/Observable";
-
+import { Http ,HttpModule} from '@angular/http';
 
 @Component({
   selector: 'http-test',
@@ -9,8 +9,7 @@ import { Observable } from "rxjs/Observable";
   
  <p>output:{{postData}}</p>
 
-<my-form></my-form>
- 
+
 
   <table class="table table-inverse">
   <thead>
@@ -21,7 +20,7 @@ import { Observable } from "rxjs/Observable";
       <th>DESCRIPTION</th>
         <th>PRICE</th>
           <th>CREATED_DATE</th>
-          <th>EDIT</th>
+          <th>ACTIONS</th>
     </tr>
   </thead>
   <tbody>
@@ -34,6 +33,7 @@ import { Observable } from "rxjs/Observable";
       <td *ngFor="let a of info">{{a[0].created_date}}</td>
     
       <span (click)="onEdit1()"  style=" padding:20px" class="glyphicon glyphicon-pencil"></span>
+       <span (click)="deleteData1()" class="glyphicon glyphicon-trash"></span>
     </tr>
     <tr >
       <th scope="row">2</th>
@@ -43,6 +43,7 @@ import { Observable } from "rxjs/Observable";
       <td *ngFor="let a of info">{{a[1].price}}</td>
       <td *ngFor="let a of info">{{a[1].created_date}}</td>
            <span (click)="onEdit2()" style=" padding:20px" class="glyphicon glyphicon-pencil"></span>
+    <span (click)="deleteData2()" class="glyphicon glyphicon-trash"></span>
     </tr>
     <tr>
       <th scope="row">3</th>
@@ -52,6 +53,7 @@ import { Observable } from "rxjs/Observable";
       <td *ngFor="let a of info">{{a[2].price}}</td>
       <td *ngFor="let a of info">{{a[2].created_date}}</td>
      <span (click)="onEdit3()" style=" padding:20px" class="glyphicon glyphicon-pencil"></span>
+         <span (click)="deleteData3()" class="glyphicon glyphicon-trash"></span>
     </tr>
     <tr>
       <th scope="row">4</th>
@@ -61,6 +63,7 @@ import { Observable } from "rxjs/Observable";
       <td *ngFor="let a of info">{{a[3].price}}</td>
       <td *ngFor="let a of info">{{a[3].created_date}}</td>
        <span (click)="onEdit4()" style=" padding:20px" class="glyphicon glyphicon-pencil"></span>
+   <span (click)="deleteData4()" class="glyphicon glyphicon-trash"></span>
     </tr>
     <tr >
       <th scope="row">5</th>
@@ -70,42 +73,61 @@ import { Observable } from "rxjs/Observable";
       <td *ngFor="let a of info">{{a[4].price}}</td>
       <td *ngFor="let a of info">{{a[4].created_date}}</td>
        <span (click)="onEdit5()" style=" padding:20px" class="glyphicon glyphicon-pencil"></span>
-    </tr>
+          <span (click)="deleteData5()" class="glyphicon glyphicon-trash"></span>
+
   </tbody>
 </table>`,
   providers: [HTTPTestService],
-
+  
 
 })
-export class HTTPTestComponent{
-  getData:string;
+export class HTTPTestComponent {
+  getData: string;
   postData: string;
- 
+   
   public info = [];
-onEdit1(){
+  public key:any;
+   public value:any;
 
-   console.log(this.getData[0]);
-}
-onEdit2(){
-  
-   console.log(this.getData[1]);
-}
-onEdit3(){
-  
-   console.log(this.getData[2]);
-}
-onEdit4(){
-  
-   console.log(this.getData[3]);
-}
-onEdit5(){
-  
-   console.log(this.getData[4]);
+  onEdit1() {
+
+    console.log(this.getData[0]);
+    console.log(this.info[0][0]);
+  }
+  onEdit2() {
+
+    console.log(this.getData[1]);
+  }
+  onEdit3() {
+
+    console.log(this.getData[2]);
+  }
+  onEdit4() {
+
+    console.log(this.getData[3]);
+  }
+  onEdit5() {
+
+    console.log(this.getData[4]);
+  }
+
+deleteData1(){
+  console.log("")
+  this._httpService.deleteData(this.info[0][0])
+      .subscribe(
+      (data) => {
+        this.getData = (data)
+        
+
+      },
+
+      error => alert(error),
+      () => console.log("Finished")
+      );
+
 }
 
 
-    
-  
 
 
   constructor(private _httpService: HTTPTestService) {
@@ -122,6 +144,6 @@ onEdit5(){
       );
 
   }
-  
+
 
 }

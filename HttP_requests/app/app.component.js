@@ -15,7 +15,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "<h1>HTTP GET POST</h1>\n  <http-test></http-test>\n  \n  ",
+        template: "<h1>HTTP GET POST</h1>\n  <http-test></http-test>\n  <my-form></my-form>\n \n  ",
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

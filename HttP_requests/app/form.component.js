@@ -17,9 +17,18 @@ var FromComponent = (function () {
         this.data = [];
     }
     FromComponent.prototype.onSubmit = function (value) {
+        console.log();
         console.log(value);
         this.data.push(value);
         this.myService.postJson(value).subscribe(function (res) {
+            console.log("success", res);
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    FromComponent.prototype.updateData = function (value) {
+        console.log(value);
+        this.myService.putJson(value).subscribe(function (res) {
             console.log("success", res);
         }, function (err) {
             console.log(err);
@@ -31,7 +40,6 @@ FromComponent = __decorate([
     core_1.Component({
         selector: 'my-form',
         templateUrl: "app/myform.component.html",
-        inputs: ["TableData"],
         providers: [http_test_service_1.HTTPTestService],
     }),
     __metadata("design:paramtypes", [http_test_service_1.HTTPTestService])
