@@ -74,7 +74,7 @@ this.data.price=value.price;
 
      this._httpService.updateData(this.data).subscribe(
             (data) => {
-            console.log("hii");
+            
         this.getProductListing();
      },err=>{
        console.log(err);

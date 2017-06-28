@@ -51,7 +51,6 @@ var HTTPTestComponent = (function () {
     HTTPTestComponent.prototype.onUpdate = function (value) {
         var _this = this;
         this._httpService.updateData(this.data).subscribe(function (data) {
-            console.log("hii");
             _this.getProductListing();
         }, function (err) {
             console.log(err);
