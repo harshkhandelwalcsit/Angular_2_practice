@@ -12,7 +12,6 @@ var http_test_component_1 = require("./http-test.component");
 var app_component_1 = require("./app.component");
 var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
-var form_component_1 = require("./form.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -21,7 +20,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule],
-        declarations: [app_component_1.AppComponent, http_test_component_1.HTTPTestComponent, form_component_1.FromComponent],
+        declarations: [app_component_1.AppComponent, http_test_component_1.HTTPTestComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

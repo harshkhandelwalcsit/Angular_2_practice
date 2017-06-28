@@ -13,16 +13,41 @@ import { Http, HttpModule } from '@angular/http';
 export class HTTPTestComponent implements OnInit {
   getData: string;
   postData: string;
-
+ public data={
+   "id":" ",
+   "name":" ",
+   "desc":" ",
+   "price":" "
+ }
+  // public name;
+  // public desc;
+  // public price;
   public info = [];
 
   ngOnInit() {
 
     this.getProductListing();
+     
+  }
+   onSubmit(value: any) {
+
+   
+  
+    
+    this._httpService.postJson(value) .subscribe(
+      (data) => {
+         
+        this.getProductListing();
+      },
+
+      error => alert(error),
+      () => console.log("Submit Data")
+      );
+
   }
 
   getProductListing() {
-    this._httpService.getCurrentTime()
+    this._httpService.getData()
       .subscribe(
       (data) => {
 
@@ -37,14 +62,23 @@ export class HTTPTestComponent implements OnInit {
   onEdit(value: any) {
 
     console.log(value);
+    this.data.id=value._id;
+this.data.name=value.name;
+this.data.desc=value.desc;
+this.data.price=value.price;
    
-    //   this._httpService.updateData(value).subscribe(
-    //         (data) => {
-    //            console.log(this._httpService.information);
-    //     this.getProductListing();
-    //  },err=>{
-    //    console.log(err);
-    //  });
+   
+     
+  }
+  onUpdate(value:any){
+
+     this._httpService.updateData(this.data).subscribe(
+            (data) => {
+            console.log("hii");
+        this.getProductListing();
+     },err=>{
+       console.log(err);
+     });
 
   }
 

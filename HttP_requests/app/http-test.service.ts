@@ -9,15 +9,20 @@ import { Observable } from "rxjs/Observable";
 export class HTTPTestService {
     postJson$: Observable<any>;
 
+//   public information={
+//    "id":" ",
+//    "name":" ",
+//    "desc":" ",
+//    "price":" "
+//  }
   
-    public information="harsh";
 
     constructor(private _http: Http) {
        
     }
 
 
-    getCurrentTime() {
+    getData() {
         return this._http.get('https://accedo-video-app-api.herokuapp.com/getProducts')
             .map(res => res.json());
 
@@ -36,19 +41,20 @@ export class HTTPTestService {
 
 
     }
-//     updateData(value:any) {
+    updateData(value:any) {
 
 
-//         console.log(value);
-//         var json = JSON.stringify(value);
-// console.log(json);
-//         return this._http.post('https://accedo-video-app-api.herokuapp.com/updateProduct', json
-//         )
-//             .map(res => res.json());
+        console.log(value);
+      
+        var json = value;
 
-//     }
+        return this._http.post('https://accedo-video-app-api.herokuapp.com/updateProduct', json
+        )
+            .map(res => res.json());
+
+    }
     deleteInfo(_id) {
-        this.information=_id;
+       
         var json = {
             "_id": _id
         };

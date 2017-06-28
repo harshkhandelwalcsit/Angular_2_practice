@@ -14,11 +14,16 @@ var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var http_2 = require("@angular/http");
 var HTTPTestService = (function () {
+    //   public information={
+    //    "id":" ",
+    //    "name":" ",
+    //    "desc":" ",
+    //    "price":" "
+    //  }
     function HTTPTestService(_http) {
         this._http = _http;
-        this.information = "harsh";
     }
-    HTTPTestService.prototype.getCurrentTime = function () {
+    HTTPTestService.prototype.getData = function () {
         return this._http.get('https://accedo-video-app-api.herokuapp.com/getProducts')
             .map(function (res) { return res.json(); });
     };
@@ -30,16 +35,13 @@ var HTTPTestService = (function () {
         return this._http.post('https://accedo-video-app-api.herokuapp.com/addProduct', json)
             .map(function (res) { return res.json(); });
     };
-    //     updateData(value:any) {
-    //         console.log(value);
-    //         var json = JSON.stringify(value);
-    // console.log(json);
-    //         return this._http.post('https://accedo-video-app-api.herokuapp.com/updateProduct', json
-    //         )
-    //             .map(res => res.json());
-    //     }
+    HTTPTestService.prototype.updateData = function (value) {
+        console.log(value);
+        var json = value;
+        return this._http.post('https://accedo-video-app-api.herokuapp.com/updateProduct', json)
+            .map(function (res) { return res.json(); });
+    };
     HTTPTestService.prototype.deleteInfo = function (_id) {
-        this.information = _id;
         var json = {
             "_id": _id
         };
