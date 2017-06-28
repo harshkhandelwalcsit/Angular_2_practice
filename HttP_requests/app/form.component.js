@@ -26,14 +26,6 @@ var FromComponent = (function () {
             console.log(err);
         });
     };
-    FromComponent.prototype.updateData = function (value) {
-        console.log(value);
-        this.myService.putJson(value).subscribe(function (res) {
-            console.log("success", res);
-        }, function (err) {
-            console.log(err);
-        });
-    };
     return FromComponent;
 }());
 FromComponent = __decorate([

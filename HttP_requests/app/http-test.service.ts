@@ -8,7 +8,7 @@ import { Observable } from "rxjs/Observable";
 
 export class HTTPTestService {
       postJson$: Observable<any>;
-    putJson$: Observable<any>;
+  
 public searchID;
    
     constructor(private _http: Http) { 
@@ -35,27 +35,8 @@ public searchID;
 
 
     }
-putJson(data){
-    var json=data;
-          var headers = new Headers();
-      
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-  return this._http.put('https://accedo-video-app-api.herokuapp.com/updateProducts', json
-            )
-            .map(res => res.json());
-}
-        
-deleteData(value:any){
-    console.log(value);
-  var json=value;
-          var headers = new Headers();
-      
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-  return this._http.delete('https://accedo-video-app-api.herokuapp.com/deleteProduct', json
-            )
-            .map(res => res.json());
-}
+
  }
   
-}  
+
 

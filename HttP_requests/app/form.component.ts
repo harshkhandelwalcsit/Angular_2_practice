@@ -35,15 +35,7 @@ onSubmit(value:any )
     
     }
 
-    updateData(value:any){
-
-       console.log(value);
-      this.myService.putJson(value).subscribe(res=>{
-       console.log("success",res);
-     },err=>{
-       console.log(err);
-     });
-    }
+ 
    
  public constructor(private myService: HTTPTestService) {
    

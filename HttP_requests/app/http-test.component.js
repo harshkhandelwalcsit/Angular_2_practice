@@ -38,13 +38,20 @@ var HTTPTestComponent = (function () {
     HTTPTestComponent.prototype.onEdit5 = function () {
         console.log(this.getData[4]);
     };
+    HTTPTestComponent.prototype.deleteData5 = function () {
+        console.log("h");
+    };
+    HTTPTestComponent.prototype.deleteData4 = function () {
+        console.log("a");
+    };
+    HTTPTestComponent.prototype.deleteData3 = function () {
+        console.log("r");
+    };
+    HTTPTestComponent.prototype.deleteData2 = function () {
+        console.log("s");
+    };
     HTTPTestComponent.prototype.deleteData1 = function () {
-        var _this = this;
-        console.log("");
-        this._httpService.deleteData(this.info[0][0])
-            .subscribe(function (data) {
-            _this.getData = (data);
-        }, function (error) { return alert(error); }, function () { return console.log("Finished"); });
+        console.log("h");
     };
     return HTTPTestComponent;
 }());

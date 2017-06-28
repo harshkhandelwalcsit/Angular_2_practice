@@ -30,21 +30,6 @@ var HTTPTestService = (function () {
         return this._http.post('https://accedo-video-app-api.herokuapp.com/addProduct', json)
             .map(function (res) { return res.json(); });
     };
-    HTTPTestService.prototype.putJson = function (data) {
-        var json = data;
-        var headers = new http_2.Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        return this._http.put('https://accedo-video-app-api.herokuapp.com/updateProducts', json)
-            .map(function (res) { return res.json(); });
-    };
-    HTTPTestService.prototype.deleteData = function (value) {
-        console.log(value);
-        var json = value;
-        var headers = new http_2.Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        return this._http.delete('https://accedo-video-app-api.herokuapp.com/deleteProduct', json)
-            .map(function (res) { return res.json(); });
-    };
     return HTTPTestService;
 }());
 HTTPTestService = __decorate([

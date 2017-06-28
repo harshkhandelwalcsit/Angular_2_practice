@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output ,EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HTTPTestService } from './http-test.service';
 import { Observable } from "rxjs/Observable";
-import { Http ,HttpModule} from '@angular/http';
+import { Http, HttpModule } from '@angular/http';
 
 @Component({
   selector: 'http-test',
@@ -78,16 +78,15 @@ import { Http ,HttpModule} from '@angular/http';
   </tbody>
 </table>`,
   providers: [HTTPTestService],
-  
+
 
 })
 export class HTTPTestComponent {
   getData: string;
   postData: string;
-   
+
   public info = [];
-  public key:any;
-   public value:any;
+
 
   onEdit1() {
 
@@ -110,22 +109,25 @@ export class HTTPTestComponent {
 
     console.log(this.getData[4]);
   }
+deleteData5(){
+console.log("h");
+}
+deleteData4(){
+ console.log("a"); 
+}
+
+deleteData3(){
+  console.log("r");
+}
+
+deleteData2(){
+  console.log("s");
+}
 
 deleteData1(){
-  console.log("")
-  this._httpService.deleteData(this.info[0][0])
-      .subscribe(
-      (data) => {
-        this.getData = (data)
-        
-
-      },
-
-      error => alert(error),
-      () => console.log("Finished")
-      );
-
+  console.log("h");
 }
+
 
 
 
