@@ -4,7 +4,7 @@ import { Observable } from "rxjs/Observable";
 import { Http, HttpModule } from '@angular/http';
 
 @Component({
-  selector: 'http-test',
+  selector: 'http-Test',
   templateUrl: `app/http-test.component.html`,
   providers: [HTTPTestService],
 

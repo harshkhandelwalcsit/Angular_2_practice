@@ -67,7 +67,7 @@ var HTTPTestComponent = (function () {
 }());
 HTTPTestComponent = __decorate([
     core_1.Component({
-        selector: 'http-test',
+        selector: 'http-Test',
         templateUrl: "app/http-test.component.html",
         providers: [http_test_service_1.HTTPTestService],
     }),
