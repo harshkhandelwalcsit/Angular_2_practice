@@ -17,14 +17,15 @@ var FromComponent = (function () {
         this.data = [];
     }
     FromComponent.prototype.onSubmit = function (value) {
-        console.log();
-        console.log(value);
         this.data.push(value);
         this.myService.postJson(value).subscribe(function (res) {
             console.log("success", res);
         }, function (err) {
             console.log(err);
         });
+    };
+    FromComponent.prototype.updateData = function (value) {
+        console.log(value);
     };
     return FromComponent;
 }());

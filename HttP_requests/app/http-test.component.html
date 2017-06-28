@@ -1,0 +1,26 @@
+<table class="table table-inverse">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>DESCRIPTION</th>
+        <th>PRICE</th>
+          <th>CREATED_DATE</th>
+          <th>ACTIONS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of info ; let i = index">
+      
+        <td>{{i+1}}</td>
+      <td >{{a._id}}</td>
+      <td >{{a.name}}</td>
+      <td >{{a.desc}}</td>
+      <td >{{a.price}}</td>
+      <td >{{a.created_date}}</td>
+           <span (click)="onEdit(a)" style=" padding:20px" class="glyphicon glyphicon-pencil"></span>
+        <span (click)="deleteData(a._id)" class="glyphicon glyphicon-trash"></span>
+    </tr>
+  </tbody>
+</table>
