@@ -27,10 +27,11 @@ export class FromComponent {
 
   }
 
-  updateData(value: any) {
-    console.log(value);
+//   updateData(value: any) {
+//     console.log(value);
+// console.log(this.myService.information);
+//   }
 
-  }
 
   public constructor(private myService: HTTPTestService) {
 

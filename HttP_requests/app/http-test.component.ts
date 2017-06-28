@@ -37,9 +37,10 @@ export class HTTPTestComponent implements OnInit {
   onEdit(value: any) {
 
     console.log(value);
-    
+   
     //   this._httpService.updateData(value).subscribe(
     //         (data) => {
+    //            console.log(this._httpService.information);
     //     this.getProductListing();
     //  },err=>{
     //    console.log(err);
@@ -52,6 +53,7 @@ export class HTTPTestComponent implements OnInit {
     this._httpService.deleteInfo(item_id)
       .subscribe(
       (data) => {
+         
         this.getProductListing();
       },
 

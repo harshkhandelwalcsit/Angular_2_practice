@@ -12,6 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_test_service_1 = require("./http-test.service");
 var FromComponent = (function () {
+    //   updateData(value: any) {
+    //     console.log(value);
+    // console.log(this.myService.information);
+    //   }
     function FromComponent(myService) {
         this.myService = myService;
         this.data = [];
@@ -23,9 +27,6 @@ var FromComponent = (function () {
         }, function (err) {
             console.log(err);
         });
-    };
-    FromComponent.prototype.updateData = function (value) {
-        console.log(value);
     };
     return FromComponent;
 }());

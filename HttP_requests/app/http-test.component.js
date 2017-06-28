@@ -30,6 +30,7 @@ var HTTPTestComponent = (function () {
         console.log(value);
         //   this._httpService.updateData(value).subscribe(
         //         (data) => {
+        //            console.log(this._httpService.information);
         //     this.getProductListing();
         //  },err=>{
         //    console.log(err);

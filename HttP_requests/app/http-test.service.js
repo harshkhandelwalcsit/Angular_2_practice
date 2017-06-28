@@ -16,7 +16,7 @@ var http_2 = require("@angular/http");
 var HTTPTestService = (function () {
     function HTTPTestService(_http) {
         this._http = _http;
-        this.searchID = { _id: '5912e701ec8f4b040018faea', name: 'product 4' };
+        this.information = "harsh";
     }
     HTTPTestService.prototype.getCurrentTime = function () {
         return this._http.get('https://accedo-video-app-api.herokuapp.com/getProducts')
@@ -30,14 +30,16 @@ var HTTPTestService = (function () {
         return this._http.post('https://accedo-video-app-api.herokuapp.com/addProduct', json)
             .map(function (res) { return res.json(); });
     };
-    HTTPTestService.prototype.updateData = function (value) {
-        console.log(value);
-        var json = JSON.stringify(value);
-        console.log(json);
-        return this._http.post('https://accedo-video-app-api.herokuapp.com/updateProduct', json)
-            .map(function (res) { return res.json(); });
-    };
+    //     updateData(value:any) {
+    //         console.log(value);
+    //         var json = JSON.stringify(value);
+    // console.log(json);
+    //         return this._http.post('https://accedo-video-app-api.herokuapp.com/updateProduct', json
+    //         )
+    //             .map(res => res.json());
+    //     }
     HTTPTestService.prototype.deleteInfo = function (_id) {
+        this.information = _id;
         var json = {
             "_id": _id
         };

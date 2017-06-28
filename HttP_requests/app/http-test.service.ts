@@ -9,10 +9,11 @@ import { Observable } from "rxjs/Observable";
 export class HTTPTestService {
     postJson$: Observable<any>;
 
-    public searchID;
+  
+    public information="harsh";
 
     constructor(private _http: Http) {
-        this.searchID = { _id: '5912e701ec8f4b040018faea', name: 'product 4' };
+       
     }
 
 
@@ -35,17 +36,19 @@ export class HTTPTestService {
 
 
     }
-    updateData(value: any) {
+//     updateData(value:any) {
 
-        console.log(value);
-        var json = JSON.stringify(value);
-console.log(json);
-        return this._http.post('https://accedo-video-app-api.herokuapp.com/updateProduct', json
-        )
-            .map(res => res.json());
 
-    }
+//         console.log(value);
+//         var json = JSON.stringify(value);
+// console.log(json);
+//         return this._http.post('https://accedo-video-app-api.herokuapp.com/updateProduct', json
+//         )
+//             .map(res => res.json());
+
+//     }
     deleteInfo(_id) {
+        this.information=_id;
         var json = {
             "_id": _id
         };
