@@ -1,0 +1,6 @@
+ <nav >
+
+  <a *ngIf="!_authService.isLogin" routerLink="/login" routerLinkActive="active">Login</a>
+   <a *ngIf="!_authService.isLogin" routerLink="/signup" routerLinkActive="active">SignUp</a>
+   <a *ngIf="_authService.isLogin" (click)="userLogout();" href="javascript:;" routerLinkActive="active">Logout</a>
+  </nav>

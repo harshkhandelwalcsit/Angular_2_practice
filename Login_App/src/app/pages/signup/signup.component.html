@@ -1,0 +1,50 @@
+<div style="width:35%;border:2px solid gray;margin-left:25%;margin-top:10%">
+    <div class="row">
+        <form #userForm="ngForm" class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="text" #emailRef="ngModel" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                        name="email" class="validate" ngModel>
+                    <label for="email">Email</label>
+                    <div *ngIf="emailRef.errors && (emailRef.dirty || emailRef.touched)">
+                        <div [hidden]="!emailRef.errors.required" class="alert alert-danger">
+                            Enter email id
+                        </div>
+                        <div [hidden]="!emailRef.errors.pattern" class="alert alert-danger">
+                            Please enter a valid email id
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" type="password" #passRef="ngModel" required name="password" minlength="6" class="validate" ngModel>
+                    <label for="password">Password</label>
+                    <div *ngIf="passRef.errors && (passRef.dirty || passRef.touched)">
+                        <div [hidden]="!passRef.errors.required" class="alert alert-danger">
+                            Enter email id
+                        </div>
+                        <div [hidden]="!passRef.errors.minlength" class="alert alert-danger">
+                            Please enter atleast 6 characters
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <!--<div *ngIf="userForm.value.password==userForm.value.confirmpassword">
+
+            <div class="alert alert-danger">
+                Passwords not match
+            </div>
+
+            </div>-->
+
+
+
+
+            <a (click)="signup(userForm.value);userForm.reset()" style="width:100%" class="waves-effect waves-light btn">Register</a>
+        </form>
+    </div>
+</div>
