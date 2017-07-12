@@ -3,12 +3,13 @@ import { AuthenticationService } from '../../services/authentication/authenticat
 
 
 
-@Component({
+@Component ({
     selector:'welcome-page',
   templateUrl: 'app/pages/welcome/welcome.component.html',
 
 })
 export class WelcomeComponent {
+
 
 
 }

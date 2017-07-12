@@ -17,17 +17,17 @@ export class SignupComponent {
     
     }
 
- 
-
   signup(value: any) {
 
     this._https.postData(value, 'http://localhost/loginnn/signup.php').subscribe(
       (data) => {
         this._router.navigate(['/login']);
-        // this._cookieService.put('auth_token', data.data, {});
+           if(this._https.response.Success){
+                      alert('Comgratulations!!You are Successfully SignUp ..')
+                }
       },
       error => { console.log(error) },
-      () => console.log("Submit Data")
+      () => console.log("submit data");
     );
   }
 }

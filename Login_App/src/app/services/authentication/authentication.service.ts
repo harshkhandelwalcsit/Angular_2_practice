@@ -7,9 +7,10 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 
 export class AuthenticationService {
-    public response: any;
- public isOn: boolean = false;
+     public response: any;
+
  public isLogin: boolean = false;
+ 
     constructor(private _http: Http) {
     }
 
@@ -24,7 +25,9 @@ export class AuthenticationService {
         return this._http.post(url, value)
             .map((res) => {
                 console.log(res.json());
-                this.response = res.json();
+                 this.response = res.json();
+                // console.log(this.response);
+            
 return res.json();
             });
 

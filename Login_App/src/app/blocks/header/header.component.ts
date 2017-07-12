@@ -13,14 +13,16 @@ export class HeaderComponent {
     private _router:Router,
     private _authService:AuthenticationService
   ) {
-      if(_cookieService.get('auth_token')){
+       if(_cookieService.get('auth_token')){
         _authService.isLogin=true;
         _router.navigate(['/welcome']);
-      } else{
+      } else {
+       
         _router.navigate(['/login']);
       }
 
-    }
+  }
+ 
 
     private userLogout(){
       this._cookieService.remove('auth_token');

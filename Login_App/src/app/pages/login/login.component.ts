@@ -27,10 +27,15 @@ this.res= this._cookieService.get(key);
     // this.data=JSON.parse(value);
     this._authService.postData(value, 'http://localhost/loginnn/login.php').subscribe(
       (data) => {
-        console.log(data.token);
+       
          this._cookieService.put('auth_token', data.token, {});
          this._authService.isLogin = true;
-        this._router.navigate(['/welcome']);         
+        this._router.navigate(['/welcome']);    
+            if(this._authService.response.Error){
+                      alert('ERROR:You are not Registered!!!Please SignUp first..')
+                }
+                
+                    
       },
       error => { console.log(error) },
       () => console.log("Submit Data")
