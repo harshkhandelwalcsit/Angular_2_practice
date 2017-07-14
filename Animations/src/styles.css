@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+.room{
+    margin: 10px;
+    height: 200px;
+    width: 200px;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.heightBox{
+
+    margin: 10px;
+    width: 200px;
+    background-color:  black;
+}

@@ -23,48 +23,56 @@ export class HTTPTestService {
 
 
     getData() {
-        return this._http.get('https://accedo-video-app-api.herokuapp.com/getProducts')
+        return this._http.get('http://localhost/api/product/read.php')
             .map(res => res.json());
 
     }
 
     postJson(data) {
-        console.log(data);
-        var json = data;
+        // console.log(data);
+       
+       var json=data; 
+        // var jsonStr = data;
+        // var json=JSON.stringify(jsonStr);
+// json=JSON.parse(json);
 
         var headers = new Headers();
 
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        return this._http.post('https://accedo-video-app-api.herokuapp.com/addProduct', json
+        headers.append('Content-Type', 'application/json');
+        return this._http.post('http://localhost/api/product/create.php', json
         )
-            .map(res => res.json());
+            .map((res)=>{
+             
+                res.json()
+            });
 
 
     }
     updateData(value:any) {
 
 
-        console.log(value);
+        // console.log(value);
       
         var json = value;
 
-        return this._http.post('https://accedo-video-app-api.herokuapp.com/updateProduct', json
+        return this._http.post('http://localhost/api/product/update.php', json
         )
             .map(res => res.json());
 
     }
-    deleteInfo(_id) {
-       
+    deleteInfo(id) {
+    //    console.log(id);
         var json = {
-            "_id": _id
+            "id": id
         };
         var headers = new Headers();
 
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        return this._http.delete('https://accedo-video-app-api.herokuapp.com/deleteProduct/' + _id, json
-        )
+        return this._http.post('http://localhost/api/product/delete.php' , json)
             .map((res) => {
+                console.log("res", typeof(res))
                 res.json();
+                console.log(res.json());
             });
     }
 

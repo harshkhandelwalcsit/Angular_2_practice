@@ -11,6 +11,7 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { HeaderComponent } from './blocks/header/header.component';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { AuthenticationService } from './services/authentication/authentication.service';
+
 @NgModule({
   imports:      [ BrowserModule,FormsModule,HttpModule,RouterModule.forRoot([
     {path:'',redirectTo:'/login', pathMatch:'full'},

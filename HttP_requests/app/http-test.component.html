@@ -1,27 +1,38 @@
+<style>
+.padd{
+padding:30px;
+}
+</style>
+
 <div>
 <table class="table table-inverse">
   <thead>
     <tr>
-      <th>#</th>
-      <th>ID</th>
-      <th>NAME</th>
-      <th>DESCRIPTION</th>
-        <th>PRICE</th>
-          <th>CREATED_DATE</th>
-          <th>ACTIONS</th>
+      <th class="padd">#</th>
+      <th class="padd">ID</th>
+      <th class="padd">NAME</th>
+      <th class="padd">DESCRIPTION</th>
+        <th class="padd">PRICE</th>
+          <th class="padd">CATEGORY_ID</th>
+           <!--<th>CATEGORY_NAME</th>-->
+          <th class="padd">ACTIONS</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let a of info ; let i = index">
       
-        <td>{{i+1}}</td>
-      <td >{{a._id}}</td>
-      <td >{{a.name}}</td>
-      <td >{{a.desc}}</td>
-      <td >{{a.price}}</td>
-      <td >{{a.created_date}}</td>
-           <span (click)="onEdit(a)" style=" padding:20px" class="glyphicon glyphicon-pencil"></span>
-        <span (click)="deleteData(a._id)" class="glyphicon glyphicon-trash"></span>
+    <tr *ngFor="let a of info ; let i = index">
+    
+        <td class="padd">{{i+1}}</td>
+      <td class="padd">{{a.id}}</td>
+      <td class="padd">{{a.name}}</td>
+      <td class="padd">{{a.description}}</td>
+      <td class="padd">{{a.price}}</td>
+      <td class="padd">{{a.category_id}}</td>
+      <!--<td >{{a.category_name}}</td>-->
+
+           <span (click)="onEdit(a)"  class="glyphicon glyphicon-pencil padd"></span>
+           
+        <span (click)="deleteData(a.id)" class="glyphicon glyphicon-trash padd"></span>
     </tr>
   </tbody>
 </table>
@@ -30,7 +41,12 @@
 <div style="width:500px" class="container">
     <h2> Data</h2>
     <form #userForm="ngForm"  >
-       
+       <div class="form-group">
+     
+            <input type="hidden" class="form-control" name="id" [(ngModel)]="data.id">
+          
+ 
+       </div>
         <div class="form-group">
             <label>Name</label>
             <input type="text" class="form-control" name="name" [(ngModel)]="data.name">
@@ -40,18 +56,28 @@
         
             <div class="form-group">
                 <label>Description</label>
-                <input type="text" class="form-control" name="desc" [(ngModel)]="data.desc">
+                <input type="text" class="form-control" name="desc" [(ngModel)]="data.description">
+            </div>
+             <div class="form-group">
+                <label>Category_Id</label>
+                <input type="text" class="form-control" name="category_id" [(ngModel)]="data.category_id">
             </div>
             <div class="form-group">
                 <label>Price</label>
                 <input type="text" class="form-control" name="price" [(ngModel)]="data.price">
             </div>
+              <!--<div class="form-group">
+            <label>Category_Name</label>
+            <input type="text" class="form-control" name="category_name" [(ngModel)]="data.category_name">
+          
+ 
+       </div>-->
            
            
 
 <button  (click)="onSubmit(userForm.value ) ; userForm.reset()" class="btn btn-primary">Send data</button>
             
-<button  (click)="onUpdate(userForm.value )" class="btn btn-primary">update data</button>
+<button  (click)="onUpdate(userForm.value )  ; userForm.reset()" class="btn btn-primary">update data</button>
       
 
         

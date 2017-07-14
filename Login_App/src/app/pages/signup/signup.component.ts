@@ -22,12 +22,13 @@ export class SignupComponent {
     this._https.postData(value, 'http://localhost/loginnn/signup.php').subscribe(
       (data) => {
         this._router.navigate(['/login']);
-           if(this._https.response.Success){
+           if(this._https.response.Success)
+           {
                       alert('Comgratulations!!You are Successfully SignUp ..')
                 }
       },
       error => { console.log(error) },
-      () => console.log("submit data");
+      () => console.log("submit data")
     );
   }
 }

@@ -1,0 +1,16 @@
+<h1>
+  {{title}}
+</h1>
+
+<button (click)="toggleLights()">ToggleLights</button>
+<button (click)="toggleHeights()">ToggleHeights</button>
+<div (@lightsOnOff.done)=" animationDone($event) " [@heightTrigger]="heightState" (@lightsOnOff.start)="animationStarted($event)" [@lightsOnOff]="roomState" style="color:blue" class="room">Harsh
+</div>
+<div [@lightsOnOff]="roomState"  [@heightTrigger]="heightState" class="heightBox">
+  <br/>
+   <br/>
+    <br/>
+     <br/>
+      <br/>
+       <br/>
+</div>

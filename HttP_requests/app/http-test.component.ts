@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { HTTPTestService } from './http-test.service';
 import { Observable } from "rxjs/Observable";
 import { Http, HttpModule } from '@angular/http';
@@ -11,38 +11,44 @@ import { Http, HttpModule } from '@angular/http';
 
 })
 export class HTTPTestComponent implements OnInit {
+
   getData: string;
   postData: string;
- public data={
-   "id":" ",
-   "name":" ",
-   "desc":" ",
-   "price":" "
- }
+  public info = [];
+  public data = {
+    "id": "",
+    "name": " ",
+    "description": " ",
+    "price": " ",
+    "category_id": " ",
+    "category_name": " "
+  }
   // public name;
   // public desc;
   // public price;
-  public info = [];
+
 
   ngOnInit() {
 
     this.getProductListing();
-     
-  }
-   onSubmit(value: any) {
 
-   
-  
-    
-    this._httpService.postJson(value) .subscribe(
+  }
+  onSubmit(value: any) {
+
+
+    console.log(value);
+
+
+    this._httpService.postJson(value).subscribe(
       (data) => {
-         
+
         this.getProductListing();
       },
 
-      error => alert(error),
+      error => {console.log(error)},
       () => console.log("Submit Data")
-      );
+    );
+
 
   }
 
@@ -51,49 +57,59 @@ export class HTTPTestComponent implements OnInit {
       .subscribe(
       (data) => {
 
-        this.info = data;
+        this.info = data.records;
 
+         console.log(this.info[0]);
       },
 
       error => alert(error),
       () => console.log("GeTCurrent List")
       );
   }
-  onEdit(value: any) {
-
-    console.log(value);
-    this.data.id=value._id;
-this.data.name=value.name;
-this.data.desc=value.desc;
-this.data.price=value.price;
-   
-   
-     
+  onEdit(value: any) 
+  {
+    
+console.log(value);
+    this.data.id = value.id;
+    this.data.name = value.name;
+    this.data.description = value.description;
+    this.data.price = value.price;
+    this.data.category_id = value.category_id;
+    this.data.category_name = value.category_name;
+  
+  
   }
-  onUpdate(value:any){
+  
+  onUpdate(value: any) {
 
-     this._httpService.updateData(this.data).subscribe(
-            (data) => {
-            
+    this._httpService.updateData(this.data).subscribe(
+      (data) => {
+
         this.getProductListing();
-     },err=>{
-       console.log(err);
-     });
+      }, err => {
+        console.log(err);
+      });
 
   }
 
-  deleteData(item_id) {
+  deleteData(id) {
+if(confirm("Press a button!")){
 
-    this._httpService.deleteInfo(item_id)
+
+ this._httpService.deleteInfo(id)
       .subscribe(
       (data) => {
-         
+
         this.getProductListing();
       },
 
       error => alert(error),
       () => console.log("Delete Data")
       );
+}
+  else{
+  alert("You pressed Cancel!") ;
+  } 
   }
 
 
