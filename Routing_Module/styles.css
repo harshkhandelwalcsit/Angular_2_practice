@@ -33,3 +33,10 @@ nav a:hover {
  nav a:active {
   color:#039be5; 
  }
+
+div.selected{
+background-color:#CFD8DC;
+color:white;
+
+}
+ 
